@@ -7,6 +7,7 @@ on:
     paths-ignore:
       - .gitignore
       - README.md
+      - README_Blog.md
       - LICENSE
 
   # Allows you to run this workflow manually from the Actions tab
