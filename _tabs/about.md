@@ -14,4 +14,6 @@ I'm a full time software engineer based in Australia, with experience in native 
 * Game Design & Development
 * Data Hoarding & Preservation
 
-I'm currently employed full-time, but if you would like to contact me about an opportunity feel free to contact me.
+I'm currently employed full-time, but if you would like to get in touch about an opportunity feel free to contact me via email.
+
+[issun@sonofgoran.com](mailto:issun@sonofgoran.com)
