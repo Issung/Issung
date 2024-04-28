@@ -1,6 +1,6 @@
 ---
 title: Improving The Windows Experience For Software Engineering
-date: 2024-02-15 5:23:00 +0000
+date: 2024-04-28 2:30:00 +0000
 categories: [Software Engineering]
 tags: [operating systems, windows, developer experience]
 img_path: /assets/img
@@ -15,22 +15,22 @@ The problem with Windows in recent years has been a endless piling-on of cruft t
 First, a basic anatomy lesson because many people don't know:
 * The long bar across the bottom is the *Task Bar*.
 * The Windows-logo menu that opens up with all your programs is the *Start Menu*.
-* The small daemon icons along with time, network status and volum control in the bottom right is the *System Tray*.
+* The small daemon icons along with time, network status and volume control in the bottom right is the *System Tray*.
 
 ### Windows Updates
-The days of Windows randomly shutting down your PC for updates are a thing of the past. It may be tempting to turn updates off, but unless you have a very good reason, leave them on, and install them regularly.
+The days of Windows randomly shutting down your PC for updates are a thing of the past. It may be tempting to turn updates off, but unless you have a very good reason, leave them on, and install them whenever you get a chance.
 
 ### Security (Windows Defender)
 Windows Defender is the only anti-virus you will ever need, along with a good helping of common sense of course. Allow it to run and update regularly, done via Windows Update. Do not install any other anti-virus, they only exist to make money, and almost serve as a virus themselves with the amount of popups they create.
 
 ### Installing Basic Programs
-When starting a fresh install I use this handy tool called *Ninite*, it creates a single-run executable for you to install all your desired programs, and leaves no trace behind, very neat and professional: [ninite.com](https://ninite.com). Remember you need one; LibreOffice is the good one, OpenOffice is dead.
+When starting a fresh Windows install I use this handy tool called *Ninite*, it creates a single-run executable for you to install all your desired programs, and leaves no trace behind, very neat and professional: [ninite.com](https://ninite.com).
 
 ## De-cluttering
 Time to start hacking off some of the cruft!
 
 ### Winaero Tweaker
-Microsoft doesn't like to expose these sorts of tweaks through settings, so you typically need to modify registry keys, this can get a bit laborious and potentially dangerous if you don't know what you're doing, so you can use a program called *Winaero Tweaker* available here: [winaerotweaker.com](https://winaerotweaker.com). This free program has all hacks you could want available as simple checkboxes. It also has links to explain how each individual hack works too. I've used it across many installs and never had an issue.
+Microsoft makes a lot of stuff toggle-able but doesn't like to expose it through the average settings screen, and leaves it to registry keys. Modiying registry keys can get a bit laborious and potentially dangerous if you don't know what you're doing, so you can use a program called *Winaero Tweaker* available here: [winaerotweaker.com](https://winaerotweaker.com). This free program has all hacks you could want available as simple checkboxes. It also has links to explain how each individual hack works too. I've used it across many installs and never had an issue.
 
 ![WinAero Tweaker example](windowsimprovements-winaerotweaker.png)
 _One of the many tweaks available in the program._
@@ -40,15 +40,16 @@ In case you don't feel like installing it, I've linked to the registry alteratio
 * [**Classic Full Context Menus**](https://winaero.com/how-to-enable-full-context-menus-in-windows-11): The new context menu used for explorer looks nice but often just requires you to perform an extra click to get what you really want.
 * [**Disable Background Apps**](https://winaero.com/windows-11-disable-background-apps): Disable a whole lot of default background apps that no one ever uses.
 * [**Ads and Unwanted Apps**](https://winaero.com/how-to-disable-ads-in-windows-11): Disable all ads and tracking within this menu.
-* [**Disable Web Search**](https://winaero.com/disable-web-search-in-windows-10-taskbar): This stops the search in the taskbar from searching the web, which leads to a slow and innacurate experience.
-* [**Disable Cortana**](https://winaero.com/disable-cortana-in-windows-10-anniversary-update-version-1607): More taskbar efficiency and save some memory.
+* [**Disable Web Search**](https://winaero.com/disable-web-search-in-windows-10-taskbar): Disable web searching from the start menu / staskbar, which leads to a slow and innacurate experience.
+* [**Disable Cortana**](https://winaero.com/disable-cortana-in-windows-10-anniversary-update-version-1607): Save taskbar space and save some memory.
+* [**Disable Copilot**](https://winaero.com/disable-windows-copilot/): Save taskbar space and even more memory.
 
-### Taskbar Rubbish
+### Taskbar Clutter
 The taskbar comes with a lot of useless buttons now that can be disabled to free up space for more important apps! Right-click the bar and select "Taskbar Settings".
 * Say bye-bye to the search button, pressing the Windows key and typing is much faster than moving your mouse to a 1x1 centimetre area.
 * Kick the "Task view" button to the curb, the same function can be accessed via `WinKey + Tab` or you can get used to the faster `Alt + Tab`.
 * Copilot - Can be accessed with `WinKey + C`.
-* Widgets... They're slow and mostly contain clickbait news articles, no thanks. If you really to use them, the shortcut is `WinKey + W`.
+* Widgets... They're slow and mostly contain clickbait news articles, no thanks. If you really like them, the shortcut is `WinKey + W`.
 
 ### Startup Apps
 Within the new Task Manager (open with `CTRL + SHIFT + ESCAPE`) you can manage which programs start with Windows, this can come with some undesirables such as Microsoft Teams or OneDrive that can be freely disabled if you don't plan to use them at all. The list will grow as you install more onto your machine so it is good to check it occasionally to keep your startup experience speedy.
@@ -99,28 +100,8 @@ DevToys [Microsoft store](https://apps.microsoft.com/detail/9pgcv4v3bk4w) descri
 ![DevToys landing screen](windowsimprovements-devtoys.png)
 _The landing screen of DevToys with its many tools to choose from._
 
+### Scoop.sh
+[Scoop.sh](https://scoop.sh/) is a command-line installer for Windows, this is the best one I've tried (versus WinGet & Chocolatey) this is a smooth and fast way to manage installs of things like language SDKs or aforementioned tools like WinAero Tweaker, PowerToys, NVM, etc. Have a search on the site to see if they have what you need!
+
 ## Share yours!
 I'm always interested to learn more ways to improve the Windows experience and I'm sure other readers are too. Use the Giscus comments below to share your tricks & hacks with others!
-
-## Notes
-
-Efficiency
-* Sudo? Only in Windows insider build.
-
-Program Recommendations
-* Windows Terminal
-* Scoop.sh
-* Torrents: QBitTorrent
-* Git: Fork
-* OpenRGB (maybe)
-
-Aesthetics
-* Nightlight
-* Start menu position
-* Start menu "More Pins" (less recommendations)
-* No-tail cursor
-* Remove task-bar search
-* Remove other non-useful task-bar buttons.
-
-Shortcuts
-Win + Number to open application
