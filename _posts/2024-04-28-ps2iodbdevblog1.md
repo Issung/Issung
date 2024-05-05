@@ -62,7 +62,7 @@ _The *MYMC+* app as it stood before any modifications._
 One of the ultimate goals of the project was to arhive **all** variants of icons, that is, different versions of the save icons that developers could optionally create, for when the PS2 BIOS UI tries to copy or delete a save file.
 
 <video controls autoplay>
-    <source src="/Issung/assets/vid/ps2iodbdevblog1-iconvariants.webm" type="video/webm">
+    <source src="/assets/vid/ps2iodbdevblog1-iconvariants.webm" type="video/webm">
 </video>
 <em>A video showing of the PS2 BIOS showcasing some games that have multiple icon variants.</em>
 
@@ -74,7 +74,9 @@ _icon_sys_struct = struct.Struct(
     "4I4I4I4I"
     "4f4f4f"
     "4f4f4f4f"
-    "68s64s64s64s512s"
+    "68s"
+    "64s64s64s"
+    "512s"
 )
 ```
 {: file="ps2iconsys.py"}
@@ -103,10 +105,19 @@ Looks like we did something right! We can see the array starts with a 4 characte
 
 Now let's try and verify that atleast some of the numbers are correct. From the table above we know that the 4 groups of 4 integers are supposed to indicate the background color for each corner when the icon is focused. Let's compare the unpacked data from Half-Life to what we see in the PS2 BIOS UI. It's a bit easier to explain this with an accompanying image...
 
-![Converting the unpacked bytes and comparing with the PS2 BIOS display.](ps2iodbdevblog1-colorbytesmatching.png)
+![An image depicting selection of relevant values from the unpacked struct, converting them into hex colors, and comparing them against the display in the PS2 BIOS.](ps2iodbdevblog1-colorbytesmatching.png)
 _Converting the unpacked bytes and comparing with the PS2 BIOS display._
 
 * Take the integers from the points of interest, specified by the bytes layout table.
 * Convert each integer to its hex representation (e.g. 155 = 0x9b).
 * Take the 3 hex values and combine them, representing red, green and blue (e.g. #70789B).
 * Compare to the display of the PS2 BIOS, confirming the values are in the correct locations we expect.
+
+Now after learning all of this structure and how it's read, lets try and use it to access the other icon variants. Now we're diving into the GUI code of the Python app. This is all written with [wxPython](https://wxpython.org/) which is a wrapper of the [wxWidgets](https://wxwidgets.org/) C++ library. The great benefit of this for this PS2IODB project, is that the program will be able to be distributed for people on all platforms (Windows, MacOS & Linux) to use.
+
+Diving into the GUI layer was a daunting thought but that was quickly put to ease once the code was explored a bit. The files are quite length (which seems to be a trend across Python projects) but the code that touches the GUI is simple and easy to understand, which seems to be one of the goals of wxPython.
+
+It was within `icon_window.py` (meaning the 3D rendered window) that I found the code handling icon loading and the right-click context menu. After observing the pattern I was able to add some new items that act as radio buttons, allowing the user to select between the normal, copy or delete icon variants. After binding these new options to a new function, we're able to to load the icon variant's data by using the filename retrieved from the icon.sys file. After seeing how easy this was to do with the existing codebase, I was confident that extending this existing Python codebase was the right choice.
+
+![An image depicting a before/after of the 3D icon view window. The after shows new context menu options that allow for viewing previously inaccessible icon variants (copy & delete).](ps2iodbdevblog1-contextmenuvariantsselection.png)
+_After adding some new options to the 3D icon view window, the other variants can be freely viewed, while animated, for the first time._
