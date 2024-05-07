@@ -40,33 +40,33 @@ After reading Ross' documentation and looking through the mymc codebase I began 
 |144|16|Light 2 RGB|
 |160|16|Light 3 RGB|
 |176|16|Ambient light RGB|
-|192|68|Title name of savegame (null terminated, S-JIS format)|
-|260|64|Filename of normal icon (null terminated)|
-|324|64|Filename of icon file displayed when copying (null terminated)|
-|388|64|Filename of icon file displayed when deleting (null terminated)|
+|192|68|Title name of savegame (null-terminated, S-JIS format)|
+|260|64|Filename of normal icon (null-terminated)|
+|324|64|Filename of icon file displayed when copying (null-terminated)|
+|388|64|Filename of icon file displayed when deleting (null-terminated)|
 |452|512|0|
 
 _icon.sys file format structure thanks to [ps2savetools.com](https://www.ps2savetools.com/documents/iconsys-format/)_
 
-I was initially leaning towards using the learnings to writing a C# tool but realised that even though I’m not a Python export, so much groundwork had already been done in *MYMC* (and by extension its fork *MYMC+*) it would be silly to not utilise it (and would also be a great opportunity to learn some more Python!).
+I was initially leaning towards using the learnings to write a C# tool but realised that even though I’m not a Python export, so much groundwork had already been done in *MYMC* (and by extension its fork *MYMC+*) it would be silly to not utilise it (and would also be a great opportunity to learn some more Python!).
 
 I cloned the mymc+ fork as this was the most advanced project and its licence permitted, it would be the best possible starting point. I started by familiarising myself with the codebase, particularly the areas of:
 * Traversing the filesystem.
 * Picking apart the bytes to read the model, texture and animation data.
 * How the models are displayed (OpenGL).
-* The cross platform GUI framework in use (wxPython).
+* The cross-platform GUI framework in use (wxPython).
 
 ![A screenshot of the MYMC+ app from its repository.](ps2iodbdevblog1-mymcplusscreenshot.png)
 _The *MYMC+* app as it stood before any modifications._
 
-One of the ultimate goals of the project was to arhive **all** variants of icons, that is, different versions of the save icons that developers could optionally create, for when the PS2 BIOS UI tries to copy or delete a save file.
+One of the ultimate goals of the project was to archive **all** variants of icons, that is, different versions of the save icons that developers could optionally create, for when the PS2 BIOS UI tries to copy or delete a save file.
 
 <video controls autoplay>
     <source src="/assets/vid/ps2iodbdevblog1-iconvariants.webm" type="video/webm">
 </video>
 <em>A video showing of the PS2 BIOS showcasing some games that have multiple icon variants.</em>
 
-Since this was one of the ultimate goals it is important to test its feasability early in the project. We know from the above learnings that the icon.sys file in each directory ends with three strings, that contain the filenames of the idle, copy & delete icons. 
+Since this was one of the ultimate goals it is important to test its feasibility early in the project. We know from the above learnings that the icon.sys file in each directory ends with three strings, that contain the filenames of the idle, copy & delete icons. 
 
 ```python
 _icon_sys_struct = struct.Struct(
@@ -82,38 +82,38 @@ _icon_sys_struct = struct.Struct(
 {: file="ps2iconsys.py"}
 _First encounter with Python's [Struct class](https://docs.python.org/3/library/struct.html)_
 
-The code above was existing code in `ps2iconsys.py`, the strings allow to interpret a byte array as a series of values that the struct class will extract for us when we call the *unpack* method. Let's disect the meaning a bit:
+The code above was existing code in `ps2iconsys.py`, the strings allow to interpret a byte array as a series of values that the struct class will extract for us when we call the *unpack* method. Let's dissect the meaning a bit:
 * The starting `<` specifies little-endian ordering.
 * The `s` indicates a character, and the `4` coming before it means "4 chars" (1 char = 1 byte).
 * Capital `H` means unsigned short (2 bytes).
 * Capital `I` means unsigned int (4 bytes). 
 * `f` means float (4 bytes).
 
-All of this is known from the two easy to read tables [[1](https://docs.python.org/3/library/struct.html#byte-order-size-and-alignment)] [[2](https://docs.python.org/3/library/struct.html#format-characters)] on the struct class' documentation. If we compare those python strings to the *icon.sys file format* table in this blog above, we can start to see the alignment, focusing on the key parts:
-* `4s` A 4 character magic header equalling "PS2D".
+All of this is known from the two easy to read tables [[1](https://docs.python.org/3/library/struct.html#byte-order-size-and-alignment)] [[2](https://docs.python.org/3/library/struct.html#format-characters)] on the struct class' documentation. If we compare those Python strings to the *icon.sys file format* table in this blog above, we can start to see the alignment, focusing on the key parts:
+* `4s` A 4-character magic header equalling "PS2D".
 * `4I4I4I4I` 4 groups of 4 unsigned integers, for background colors.
 * `4f4f4f` 3 groups of 4 floats, for light directions.
 * Skip a few...
 * `68s` A 68 character string, the savegame's title.
-* `64s64s64s` Three groups of 64 chracter strings, **the filenames for the idle, copy and delete icon files!**
+* `64s64s64s` Three groups of 64 character strings, **the filenames for the idle, copy and delete icon files!**
 
 Once we call `_icon_sys_struct.unpack()` we can see the results...
 ![The unpacked struct array in the VS Code debugger.](ps2iodbdevblog1-unpackedstructvalues.png)
 _The unpacked struct array in the VS Code debugger._
 
-Looks like we did something right! We can see the array starts with a 4 character string "PS2D" as we expect, all numbers look *sensible* (we will verify soon), and most importantly, we can see some legible text in elements 50, 51 & 52 at the end, that is the filenames for the idle, copy & delete icons. This data is for Crazy Taxi, but the icons are still called *slime_.ico*, which is a bit funny. Throughout this project I have noticed multiple quirks with the icon storage of many games. But they are stories for another  time.
+Looks like we did something right! We can see the array starts with a 4-character string "PS2D" as we expect, all numbers look *sensible* (we will verify soon), and most importantly, we can see some legible text in elements 50, 51 & 52 at the end, that is the filenames for the idle, copy & delete icons. This data is for Crazy Taxi, but the icons are still called *slime_.ico*, which is a bit funny. Throughout this project I have noticed multiple quirks with the icon storage of many games. But they are stories for another  time.
 
-Now let's try and verify that atleast some of the numbers are correct. From the table above we know that the 4 groups of 4 integers are supposed to indicate the background color for each corner when the icon is focused. Let's compare the unpacked data from Half-Life to what we see in the PS2 BIOS UI. It's a bit easier to explain this with an accompanying image...
+Now let's try and verify that at least some of the numbers are correct. From the table above we know that the 4 groups of 4 integers are supposed to indicate the background color for each corner when the icon is focused. Let's compare the unpacked data from Half-Life to what we see in the PS2 BIOS UI. It's a bit easier to explain this with an accompanying image...
 
 ![An image depicting selection of relevant values from the unpacked struct, converting them into hex colors, and comparing them against the display in the PS2 BIOS.](ps2iodbdevblog1-colorbytesmatching.png)
-_Converting the unpacked bytes and comparing with the PS2 BIOS display._
+_Converting the unpacked bytes and comparing them with the PS2 BIOS display._
 
 * Take the integers from the points of interest, specified by the bytes layout table.
 * Convert each integer to its hex representation (e.g. 155 = 0x9b).
 * Take the 3 hex values and combine them, representing red, green and blue (e.g. #70789B).
 * Compare to the display of the PS2 BIOS, confirming the values are in the correct locations we expect.
 
-Now after learning all of this structure and how it's read, lets try and use it to access the other icon variants. Now we're diving into the GUI code of the Python app. This is all written with [wxPython](https://wxpython.org/) which is a wrapper of the [wxWidgets](https://wxwidgets.org/) C++ library. The great benefit of this for this PS2IODB project, is that the program will be able to be distributed for people on all platforms (Windows, MacOS & Linux) to use.
+Now after learning all of this structure and how it's read, let's try and use it to access the other icon variants. Now we're diving into the GUI code of the Python app. This is all written with [wxPython](https://wxpython.org/) which is a wrapper of the [wxWidgets](https://wxwidgets.org/) C++ library. The great benefit of this for this PS2IODB project is that the program will be able to be distributed for people on all platforms (Windows, MacOS & Linux) to use.
 
 Diving into the GUI layer was a daunting thought but that was quickly put to ease once the code was explored a bit. The files are quite length (which seems to be a trend across Python projects) but the code that touches the GUI is simple and easy to understand, which seems to be one of the goals of wxPython.
 
@@ -122,9 +122,9 @@ It was within `icon_window.py` (meaning the 3D rendered window) that I found the
 ![An image depicting a before/after of the 3D icon view window. The after shows new context menu options that allow for viewing previously inaccessible icon variants (copy & delete).](ps2iodbdevblog1-contextmenuvariantsselection.png)
 _After adding some new options to the 3D icon view window, the other variants can be freely viewed, while animated, for the first time (pictured: Ridge Racer V)._
 
-After adding this new functionality, I was able to view a whole lot of new icons, which was entertaining for hours. This sense of exploration was one of the many things that made the PS2 special, and a key reason for starting this project. 
+After adding this new functionality, I was able to view a whole lot of new icons, which was entertaining for hours. This sense of exploration was one of the many things that made the PS2 special and a key reason for starting this project. 
 
-Thanks for reading along this far! In the next devblog we'll take a look at starting to export the asset data into a format that can be easily viewed and shared without any special software. Feel free to share your thoughts in the comments, or subscribe to the [rss](/feed.xml) or newsletter below!
+Thanks for reading along this far! In the next dev blog we'll take a look at starting to export the asset data into a format that can be easily viewed and shared without any special software. Feel free to share your thoughts in the comments, or subscribe to the [RSS](/feed.xml) or newsletter below!
 
 <div id="mc_embed_shell">
       <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
