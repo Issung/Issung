@@ -22,3 +22,13 @@ When viewing an album page please allow some time for the embedded Internet Arch
     * Contains media from: Quakenight, Murderer's LAN, Terra Fracta, Fragmania, Club Shub, Nexus, Uni Lan Club
 * [BFG LAN](/lanalbums-bfg) 2001 - 2002, 8 Albums, 358 Photos
 * [Dark-Media](/lanalbums-darkmedia) 2004 - 2010, 1 Video, 13 Albums, 986 Photos
+
+### Related Projects
+* [Dfragtv Flickr Album](https://www.flickr.com/photos/dfragtv/albums/) showing LANs on Mainland Australia from 2009 - 2024.
+* [Slengpung.com](https://www.slengpung.com/) extensive photo archive for demoscene parties all around the world.
+
+### Discussion
+* [Announcement on Instagram](https://www.instagram.com/p/DD8H9iYT7_W)
+* [OSNews.com article](https://www.osnews.com/story/141425/the-tasmania-lan-party-photos-archive-reminded-me-of-my-terrible-teenage-fashion-choices/) (2 comments)
+* [Reddit /r/tasmania post](https://www.reddit.com/r/tasmania/comments/1hl5r6s) (~140 votes, ~20 comments)
+* [Hackernews submission](https://news.ycombinator.com/item?id=42498754) (~160 votes, ~50 comments)
