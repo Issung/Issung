@@ -29,6 +29,7 @@ When viewing an album page please allow some time for the embedded Internet Arch
 
 ### Discussion
 * [Announcement on Instagram](https://www.instagram.com/p/DD8H9iYT7_W)
-* [OSNews.com article](https://www.osnews.com/story/141425/the-tasmania-lan-party-photos-archive-reminded-me-of-my-terrible-teenage-fashion-choices/) (2 comments)
+* [OSNews.com article](https://www.osnews.com/story/141425/the-tasmania-lan-party-photos-archive-reminded-me-of-my-terrible-teenage-fashion-choices/) (4 comments)
 * [Reddit /r/tasmania post](https://www.reddit.com/r/tasmania/comments/1hl5r6s) (~140 votes, ~20 comments)
 * [Hackernews submission](https://news.ycombinator.com/item?id=42498754) (~160 votes, ~50 comments)
+* [Jason Scott Mastodon post](https://mastodon.archive.org/@textfiles/113857659262923972) (~430 reposts, ~870 likes, ~30 comments)
