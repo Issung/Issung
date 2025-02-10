@@ -33,12 +33,14 @@ I made 3 methods of donation available; Ko-fi, PayPal & GitHub sponsor. I placed
 |  5             | Ko-fi  |  PS2IODB
 | Total: 109     |        |
 
-Above is a table of all the donations I received in 2024, the method the donator chose, and the project of mine that led to the donation. It is clear that the users of GChan greatly appreciated the fixes I did, along with some small features I did while I was at it. What is also clear is that there is a clear favourite for making donations; Ko-fi. Ko-fi has been around for a while and has built good brand recognition as a simple & trustworthy service for this type of operation.
+Above is a table of all the donations I received in 2024, the method the donator chose, and the project of mine that led to the donation. It is clear that the users of GChan greatly appreciated the fixes I did, along with some small features I did while I was at it. Each of these donations motivated me to go further with the fixes, some of the code I wrote this year for GChan is some of the best I've written. What is also clear is that there is a clear favourite for making donations; Ko-fi. Ko-fi has been around for a while and has built good brand recognition as a simple & trustworthy service for this type of operation.
 
 ![Hand-drawn Ko-fi logo](ko-fi.png)
 
 For all the work I did this year I never actually got a simple thank-you message from any users, but once I made the option to donate available, people thanked me with it. I think with this money I will forward it onto other opensource developers, to give them a smile as big as mine was everytime I got a notification.
 
-I guess the takeaways here are:
-* Out of the 3 methods I chose, Ko-fi led to the most donations.
-* People might appreciate your work more thank you think, so give them a method to let you know!
+Takeaways:
+* Out of the 3 methods I provided, Ko-fi led to the most donations.
+* The best software comes from passion not profits, prioritise making software you care about and people will appreciate it.
+* The size of the donation doesn't matter, the gesture and the resulting motivation is fantastic.
+* People might appreciate your work more thank you think, just provide a method to let you know!
