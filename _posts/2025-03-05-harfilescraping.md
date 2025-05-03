@@ -66,4 +66,6 @@ await Parallel.ForEachAsync(urls, parallelOptions, async (url, cancellationToken
 
 Obviously this isn't the fastest or cleanest solution, but building a custom scraper for every site you need one for can get time consuming quick... This is a makeshift method to use in a pinch - like the time I used a dress tie as a fanbelt, get the job done! 😊
 
-I always save code on GitHub now in case I need it later, and as it contains nothing personal I've made this one public. Feel free to use it as a reference, or clone it to customize to your current pinch 😉 [github.com/Issung/HarFileScrapeTemplate](https://github.com/Issung/HarFileScrapeTemplate).
+I always save code on GitHub now in case I need it later, and as it contains nothing personal I've made this one public. Feel free to use it as a reference, or clone it to customize to your current situation! [github.com/Issung/HarFileScrapeTemplate](https://github.com/Issung/HarFileScrapeTemplate).
+
+Have you ever slapped anything together in a pinch? I love these kinds of stories and I think most people do. It's a bit like MacGyver 😅
