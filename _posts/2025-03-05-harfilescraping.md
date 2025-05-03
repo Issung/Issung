@@ -21,7 +21,7 @@ What we need is very simple; we need to know the URL of each image, once we know
 You may have heard of HAR files previously, this is an abbreviation of *HTTP Archive*. Typically created from a web browser, they store a record of web requests in order, keeping track of all related data such as IP addresses, timings, caching, response/request format, body, headers, status codes.. They're great for getting users to record a problematic interaction and sending over for inspection, though you must be careful with who you send HAR files to; as they contain everything, this includes authentication data! There are multiple tools available online to inspect & view HAR files, or you can load them into the devtools of your browser, right next to where you would export one.
 
 ![A HAR file viewed with http://www.softwareishard.com/har/viewer/](harscraping_viewer.png)
-_A HAR file viewed with the [softwareishard tool](http://www.softwareishard.com/har/viewer/)._
+_A HAR file viewed with the <i>softwareishard</i> tool._
 
 To get what we need in the HAR file we just need to:
 1. Go to the photo album.
