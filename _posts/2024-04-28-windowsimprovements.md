@@ -3,7 +3,7 @@ title: Improving The Windows Experience For Software Engineering
 date: 2024-04-28 2:30:00 +0000
 categories: [Software Engineering]
 tags: [operating systems, windows, developer experience]
-img_path: /assets/img
+media_subpath : /assets/img
 ---
 Operating systems are a divisive topic, they seem to race back and forth in a never-ending race for a good mixture of performance, features and aesthetics. The average person's preference usually comes down to what they grew up with, or what they are forced to use for work. My preference has always been Windows since I grew up playing games on it. While I loved XP and didn't mind Vista, 7 and 8 really lost me, 10 was an improvement and I am currently really enjoying 11. 
 

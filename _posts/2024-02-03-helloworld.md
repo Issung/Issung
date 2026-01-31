@@ -3,7 +3,7 @@ title: Hello World!
 date: 2024-02-03 5:00:00 +0000
 categories: [Blogging]
 tags: [blogging, opensource, jekyll]
-img_path: /assets/img
+media_subpath : /assets/img
 ---
 Hello world! Welcome to my new blog! Something I had been meaning to get around to for a while now, my old blog was written in .NET Framework, and used Razor, it was made before I got my first job. Over the last few years I've learnt much more about using the right tool for the job, now I see that that is completely overkill for a simple static blog, especially one that will only get touched & read a handful of times a year.
 

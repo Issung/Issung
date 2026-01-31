@@ -3,11 +3,11 @@ title: 2024 - My First Opensource Donation
 date: 2025-02-10 00:00:00 +0000
 categories: [Blogging]
 tags: [opensource]
-img_path: /assets/img
+media_subpath : /assets/img
 ---
 ![Hand-drawn piggybank with opensource logo](opensource-piggybank.png)
 
-I've always been a great admirer of opensource. I discovered at a young age that when searching for software to do small things such as download YouTube videos or convert images that appending "opensource" to the end of my Google search would result in finding simple, ad-free software. This was a design philosophy that I would adopt when later publishing my own opensource software.
+I've always admired opensource. I discovered at a young age that when searching for software to do small things such as download YouTube videos or convert images that appending "opensource" to the end of my Google search would result in finding simple, ad-free software. This was a design philosophy that I would adopt when later publishing my own opensource software.
 
 As someone who has always been very careful with my own money I understand the struggle of opensource from both sides.
 * As a developer; you are working for free using your own valuable free time, which you didn't mind so much before you were working fulltime, but now definitely notice it a lot more. Sometimes, the problems you need to solve become too difficult or time-consuming, or you get one user which is just a bit too ungrateful, some compensation or appreciation would be nice!

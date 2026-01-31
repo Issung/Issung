@@ -3,10 +3,11 @@ title: Tasmania LAN Party Photos Archive
 date: 2024-12-23 00:00:00 +0000
 categories: [Blogging]
 tags: [blogging, gaming, archival]
-img_path: /assets/img
+media_subpath : /assets/img
+image:
+    path: lan.jpg
+    alt: A beautiful photo from Dark-Media LAN X7. Taken from behind a man standing in the foreground. Many people sitting down playing video games in the background.
 ---
-![A beautiful photo from Dark-Media LAN X7](lan.jpg)
-
 In July 2023 I was reminiscing about a thing of the past, large-scale public LAN parties. I remember them being a semiregular occurrence around Tasmania, only attending a couple in my young age before they disappeared. I wondered if I could find some photos of these events to help the memories come back clearer. After some googling of vague memories I was able to find the name of an old group that organised LAN parties called "Dark-Media". Using the Internet Archive's Wayback Machine I was able to find their old site, and a photo album page, but sadly none of the images had been scraped.
 
 After trying a few other timestamps and a few more web searches I sadly couldn't find anything. As a last ditch effort I made a few posts on various forums, including the long dormant Dark-Media Steam group, then I forgot about it all, until 2 months ago! Someone reached out and was able to get me into a small private Facebook group, once in I could see I had gotten more than I bargained for! I was just looking for Dark-Media photos, but found another regular LAN I had forgotten about, and photos from even more LANs from the late 90s. I was able to scrape all the photos and now upload them to [archive.org](https://archive.org/details/@issung/uploads) where they can hopefully live forever.

@@ -3,7 +3,7 @@ title: Makeshift Scraping with HAR Files
 date: 2025-05-03 00:00:00 +0000 # YYYY-MM-DD
 categories: [Software Engineering]
 tags: [scraping, c#]
-img_path: /assets/img
+media_subpath : /assets/img
 ---
 ![A cartoonish diagram showing the HAR scraping process described in this article](harscraping.png)
 
