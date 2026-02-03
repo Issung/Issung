@@ -6,7 +6,6 @@ tags: [blogging, gaming, archival]
 media_subpath : /assets/img
 image:
     path: lan.jpg
-    alt: A beautiful photo from Dark-Media LAN X7. Taken from behind a man standing in the foreground. Many people sitting down playing video games in the background.
 ---
 In July 2023 I was reminiscing about a thing of the past, large-scale public LAN parties. I remember them being a semiregular occurrence around Tasmania, only attending a couple in my young age before they disappeared. I wondered if I could find some photos of these events to help the memories come back clearer. After some googling of vague memories I was able to find the name of an old group that organised LAN parties called "Dark-Media". Using the Internet Archive's Wayback Machine I was able to find their old site, and a photo album page, but sadly none of the images had been scraped.
 

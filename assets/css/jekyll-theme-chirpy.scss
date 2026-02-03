@@ -1,0 +1,26 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+main {
+    video {
+        width: 100%;
+    }
+
+    video+p em {
+        display: block;
+        text-align: center;
+        font-style: normal;
+        font-size: 80%;
+        padding: 0;
+        color: #6d6c6c;
+    }
+}
